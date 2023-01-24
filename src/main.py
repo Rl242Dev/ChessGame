@@ -294,6 +294,12 @@ clicked = False
 #                                           Y  X      
 # We try to get the KNIGHT Array eg : board[5][1] and do Y +/- 2 and X +/- 1 if X/Y are greater than 8 then the moves is not possible
 #
+# To set the color of the cell after that the pawn moved we can simply do
+#
+#if (Wq.rect.y%2) == 0 and (Wq.rect.x%2) == 0: #Ligth else dark
+#   screen.fill((240, 217, 181), rect=(Wq.rect.x,Wq.rect.y,80,80))
+#else:
+#   screen.fill((181, 136, 99), rect=(Wq.rect.x,Wq.rect.y,80,80))
 #
 
 def main():
@@ -308,13 +314,6 @@ def main():
                 if Wq.rect.collidepoint(pygame.mouse.get_pos()):
                     print('King touched')
                     #attach sprite to mouse position
-                    clicked = True
-                if clicked == True:
-                    (x,y) = pygame.mouse.get_pos()
-                    if (Wq.rect.y%2) == 0 and (Wq.rect.x%2) == 0: #Ligth else dark
-                        screen.fill((240, 217, 181), rect=(Wq.rect.x,Wq.rect.y,80,80)) # like that but better
-                    else:
-                        screen.fill((181, 136, 99), rect=(Wq.rect.x,Wq.rect.y,80,80))
             elif event.type == pygame.QUIT:
                 Run = False
         clock.tick(60)
