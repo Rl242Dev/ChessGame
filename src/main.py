@@ -301,6 +301,8 @@ clicked = False
 #else:
 #   screen.fill((181, 136, 99), rect=(Wq.rect.x,Wq.rect.y,80,80))
 #
+# To check if the user can move the pawn we can simply create a variable UserColor = 'White' and try to do if UserColor == Piece.color: he can move
+#
 
 def main():
     Run = True
@@ -311,9 +313,9 @@ def main():
     while Run == True:
         for event in pygame.event.get():
             if event.type == pygame.MOUSEBUTTONDOWN:
-                if Wq.rect.collidepoint(pygame.mouse.get_pos()):
-                    print('King touched')
-                    #attach sprite to mouse position
+                x,y = pygame.mouse.get_pos()
+                print("X: ",x)
+                print("Y: ",y)
             elif event.type == pygame.QUIT:
                 Run = False
         clock.tick(60)
